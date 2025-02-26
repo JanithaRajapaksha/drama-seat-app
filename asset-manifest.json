@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/drama-seat-app/static/css/main.9492a151.css",
+    "main.js": "/drama-seat-app/static/js/main.d84a9b1f.js",
+    "index.html": "/drama-seat-app/index.html",
+    "main.9492a151.css.map": "/drama-seat-app/static/css/main.9492a151.css.map",
+    "main.d84a9b1f.js.map": "/drama-seat-app/static/js/main.d84a9b1f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9492a151.css",
+    "static/js/main.d84a9b1f.js"
+  ]
+}
