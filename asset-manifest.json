@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/drama-seat-app/static/css/main.9492a151.css",
-    "main.js": "/drama-seat-app/static/js/main.67647654.js",
+    "main.js": "/drama-seat-app/static/js/main.6cfff61a.js",
     "index.html": "/drama-seat-app/index.html",
     "main.9492a151.css.map": "/drama-seat-app/static/css/main.9492a151.css.map",
-    "main.67647654.js.map": "/drama-seat-app/static/js/main.67647654.js.map"
+    "main.6cfff61a.js.map": "/drama-seat-app/static/js/main.6cfff61a.js.map"
   },
   "entrypoints": [
     "static/css/main.9492a151.css",
-    "static/js/main.67647654.js"
+    "static/js/main.6cfff61a.js"
   ]
 }
