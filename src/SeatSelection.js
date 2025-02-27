@@ -77,7 +77,7 @@ const SeatSelection = () => {
 
   document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('http://localhost:5000/booked-seats',
+        const response = await fetch('http://127.0.0.1:5000/booked-seats',
           {
             
           }
@@ -126,7 +126,7 @@ const SeatSelection = () => {
 
   const fetchSeatRequests = async () => {
     try {
-      const response = await fetch('http://localhost:5000/seat-requests',
+      const response = await fetch('http://127.0.0.1:5000/seat-requests',
         {
           
         });
@@ -152,7 +152,7 @@ const SeatSelection = () => {
   useEffect(() => {
     const fetchBookedSeats = async () => {
       try {
-        const response = await fetch('http://localhost:5000/booked-seats',
+        const response = await fetch('http://127.0.0.1:5000/booked-seats',
           {
             
           });
@@ -234,7 +234,7 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/request-seats', {
+      const response = await fetch('http://127.0.0.1:5000/request-seats', {
         
         method: 'POST',
         headers: {
@@ -323,7 +323,7 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/book-seats', {
+      const response = await fetch('http://127.0.0.1:5000/book-seats', {
         
         method: 'POST',
         headers: {
