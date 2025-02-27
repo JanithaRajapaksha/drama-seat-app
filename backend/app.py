@@ -14,7 +14,6 @@ import qrcode
 import os
 
 app = Flask(__name__)
-CORS(app)
 
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024  # 16MB limit
 

@@ -9,7 +9,7 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <BrowserRouter basename="/drama-seat-app">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={isLoggedIn ? <Navigate to="/seats" /> : <Login onLogin={() => setIsLoggedIn(true)} />} />
         <Route path="/seats" element={isLoggedIn ? <SeatSelection /> : <Navigate to="/" />} />

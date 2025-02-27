@@ -77,7 +77,7 @@ const SeatSelection = () => {
 
   document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('https://drama-seat-app-backend.vercel.app/booked-seats',
+        const response = await fetch('http://188.166.213.190/booked-seats',
           {
             mode: 'cors',
           }
@@ -126,7 +126,7 @@ const SeatSelection = () => {
 
   const fetchSeatRequests = async () => {
     try {
-      const response = await fetch('https://drama-seat-app-backend.vercel.app/seat-requests',
+      const response = await fetch('http://188.166.213.190/seat-requests',
         {
           mode: 'cors',
         });
@@ -152,7 +152,7 @@ const SeatSelection = () => {
   useEffect(() => {
     const fetchBookedSeats = async () => {
       try {
-        const response = await fetch('https://drama-seat-app-backend.vercel.app/booked-seats',
+        const response = await fetch('http://188.166.213.190/booked-seats',
           {
             mode: 'cors',
           });
@@ -234,7 +234,7 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
     };
 
     try {
-      const response = await fetch('https://drama-seat-app-backend.vercel.app/request-seats', {
+      const response = await fetch('http://188.166.213.190/request-seats', {
         mode: 'cors',
         method: 'POST',
         headers: {
@@ -323,7 +323,7 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
     };
   
     try {
-      const response = await fetch('https://drama-seat-app-backend.vercel.app/book-seats', {
+      const response = await fetch('http://188.166.213.190/book-seats', {
         mode: 'cors',
         method: 'POST',
         headers: {
