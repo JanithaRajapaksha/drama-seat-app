@@ -15,6 +15,8 @@ import os
 
 app = Flask(__name__)
 
+CORS(app)  # Enable CORS for all routes
+
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024  # 16MB limit
 
 
@@ -303,4 +305,4 @@ def hello_world():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=80)
