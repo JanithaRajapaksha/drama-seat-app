@@ -77,7 +77,11 @@ const SeatSelection = () => {
 
   document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('http://localhost:5000/booked-seats');
+        const response = await fetch('https://drama-seat-app-backend.vercel.app/booked-seats',
+          {
+            mode: 'cors',
+          }
+        );
         const data = await response.json();
   
         if (response.ok) {
@@ -122,7 +126,10 @@ const SeatSelection = () => {
 
   const fetchSeatRequests = async () => {
     try {
-      const response = await fetch('http://localhost:5000/seat-requests');
+      const response = await fetch('https://drama-seat-app-backend.vercel.app/seat-requests',
+        {
+          mode: 'cors',
+        });
       const data = await response.json();
 
       if (response.ok) {
@@ -145,7 +152,10 @@ const SeatSelection = () => {
   useEffect(() => {
     const fetchBookedSeats = async () => {
       try {
-        const response = await fetch('http://localhost:5000/booked-seats');
+        const response = await fetch('https://drama-seat-app-backend.vercel.app/booked-seats',
+          {
+            mode: 'cors',
+          });
         const data = await response.json();
 
         if (response.ok) {
@@ -224,7 +234,8 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/request-seats', {
+      const response = await fetch('https://drama-seat-app-backend.vercel.app/request-seats', {
+        mode: 'cors',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -312,7 +323,8 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
     };
   
     try {
-      const response = await fetch('http://localhost:5000/book-seats', {
+      const response = await fetch('https://drama-seat-app-backend.vercel.app/book-seats', {
+        mode: 'cors',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -520,42 +532,45 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
   }}
 >
   <div style={{ display: 'inline-block', minWidth: '10px' }}> {/* Padding on the left side */}
-    {Object.entries(seats).map(([section, rows]) => (
-      <div key={section} style={{ marginBottom: '0px' }}>
-        {rows.map((row, rowIndex) => (
-          <div
-            key={rowIndex}
-            style={{
-              marginBottom: '10px',
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '7px',
-              flexWrap: 'nowrap', // Prevent row wrapping
-            }}
-          >
-            {row.map((seat, seatIndex) =>
-              seat ? (
-                <>
-                  {seatIndex === 11 && (
-                    <div style={{ minWidth: '20px' }}></div> // Spacer between left and right sections
-                  )}
-                  <button
-                    key={seat}
-                    onClick={() => handleSeatSelect(seat)}
-                    style={getSeatStyle(seat)}
-                    disabled={bookedSeats.includes(seat)}
-                  >
-                    {seat}
-                  </button>
-                </>
-              ) : (
-                <div key={Math.random()} style={{ minWidth: '45px' }}></div>
-              )
-            )}
-          </div>
-        ))}
+  {Object.entries(seats).map(([section, rows]) => (
+  <div key={`section-${section}`}
+  style={{ marginBottom: '0px' }}>
+    {rows.map((row, rowIndex) => (
+      <div
+        key={`row-${section}-${rowIndex}`}  // Unique key for each row
+        style={{
+          marginBottom: '10px',
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '7px',
+          flexWrap: 'nowrap',
+        }}
+      >
+        {row.map((seat, seatIndex) =>
+          seat ? (
+            <>
+              {seatIndex === 11 && (
+                <div style={{ minWidth: '20px' }}></div> // Spacer between left and right sections
+              )}
+              <button
+                key={`seat-${section}-${rowIndex}-${seatIndex}`}  // Unique key for each seat
+                onClick={() => handleSeatSelect(seat)}
+                style={getSeatStyle(seat)}
+                disabled={bookedSeats.includes(seat)}
+              >
+                {seat}
+              </button>
+            </>
+          ) : (
+            <div key={`empty-${section}-${rowIndex}-${seatIndex}`} style={{ minWidth: '45px' }}></div>  // Unique key for empty seats
+          )
+        )}
       </div>
     ))}
+  </div>
+))}
+
+
   </div>
 </div>
 
