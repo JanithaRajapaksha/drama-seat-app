@@ -77,13 +77,13 @@ const SeatSelection = () => {
 
   document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('http://188.166.213.190/booked-seats',
+        const response = await fetch('http://188.166.213.190/5000/booked-seats',
           {
             mode: 'cors',
           }
         );
         const data = await response.json();
-  
+
         if (response.ok) {
             console.log(data.bookedSeats);
         } else {
@@ -126,7 +126,7 @@ const SeatSelection = () => {
 
   const fetchSeatRequests = async () => {
     try {
-      const response = await fetch('http://188.166.213.190/seat-requests',
+      const response = await fetch('http://188.166.213.190/5000/seat-requests',
         {
           mode: 'cors',
         });
@@ -152,7 +152,7 @@ const SeatSelection = () => {
   useEffect(() => {
     const fetchBookedSeats = async () => {
       try {
-        const response = await fetch('http://188.166.213.190/booked-seats',
+        const response = await fetch('http://188.166.213.190/5000/booked-seats',
           {
             mode: 'cors',
           });
@@ -170,7 +170,7 @@ const SeatSelection = () => {
 
     fetchBookedSeats();  // Call the function to fetch data
   }, []);  // Empty dependency array ensures this runs only once when the component mounts
-  
+
 
   const handleSeatSelect = (seat) => {
     setSelectedSeats(prev =>
@@ -234,7 +234,7 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
     };
 
     try {
-      const response = await fetch('http://188.166.213.190/request-seats', {
+      const response = await fetch('http://188.166.213.190/5000/request-seats', {
         mode: 'cors',
         method: 'POST',
         headers: {
@@ -274,12 +274,12 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
 
   const handleSubmit = async () => {
     const adminUsername = sessionStorage.getItem('username');
-  
+
     if (adminUsername === 'guest') {
       alert('As a guest, you can only request seats — not confirm bookings.');
       return;
     }
-  
+
     if (!email) {
       return alert('Please enter your email!');
     }
@@ -289,13 +289,13 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
     if (selectedSeats.length === 0) {
       return alert('No seats selected!');
     }
-  
+
     // Map selected seats to an array of objects with seat number and price
     const seatDetails = selectedSeats.map(seat => ({
       seatNo: seat,
       price: getSeatPrice(seat)
     }));
-  
+
     // Calculate total from seat details
     const total = seatDetails.reduce((sum, seat) => sum + seat.price, 0);
 
@@ -309,7 +309,7 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
       second: '2-digit',
       hour12: false // To get 24-hour format
     }).format(new Date());
-  
+
     // Prepare the data to send to the backend
     const bookingData = {
       timestamp: timestamp,
@@ -321,9 +321,9 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
       intake: intake,
       indexNumber: indexNumber
     };
-  
+
     try {
-      const response = await fetch('http://188.166.213.190/book-seats', {
+      const response = await fetch('http://188.166.213.190/5000/book-seats', {
         mode: 'cors',
         method: 'POST',
         headers: {
