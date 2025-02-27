@@ -79,7 +79,7 @@ const SeatSelection = () => {
     try {
         const response = await fetch('http://188.166.213.190:80/booked-seats',
           {
-            mode: 'no-cors',
+            
           }
         );
         const data = await response.json();
@@ -128,7 +128,7 @@ const SeatSelection = () => {
     try {
       const response = await fetch('http://188.166.213.190:80/seat-requests',
         {
-          mode: 'no-cors',
+          
         });
       const data = await response.json();
 
@@ -154,7 +154,7 @@ const SeatSelection = () => {
       try {
         const response = await fetch('http://188.166.213.190:80/booked-seats',
           {
-            mode: 'no-cors',
+            
           });
         const data = await response.json();
 
@@ -235,7 +235,7 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
 
     try {
       const response = await fetch('http://188.166.213.190:80/request-seats', {
-        mode: 'no-cors',
+        
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -324,7 +324,7 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
 
     try {
       const response = await fetch('http://188.166.213.190:80/book-seats', {
-        mode: 'no-cors',
+        
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
