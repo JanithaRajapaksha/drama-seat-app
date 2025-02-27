@@ -375,6 +375,65 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
       }}>
         Lily's Magic World Drama Seat Booking
       </h1>
+
+      {/* Ticket Price Legend */}
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '20px',
+  margin: '20px 0',
+  flexWrap: 'wrap' // Ensures it looks good on smaller screens
+}}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+    <div style={{
+      width: '20px',
+      height: '20px',
+      backgroundColor: 'red',
+      border: '1px solid #444'
+    }}></div>
+    <span>Rs. 1000</span>
+  </div>
+
+  <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+    <div style={{
+      width: '20px',
+      height: '20px',
+      backgroundColor: 'blue',
+      border: '1px solid #444'
+    }}></div>
+    <span>Rs. 600</span>
+  </div>
+
+  <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+    <div style={{
+      width: '20px',
+      height: '20px',
+      backgroundColor: '#522D00',
+      border: '1px solid #444'
+    }}></div>
+    <span>Rs. 400</span>
+  </div>
+
+  <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+    <div style={{
+      width: '20px',
+      height: '20px',
+      backgroundColor: 'green',
+      border: '1px solid #444'
+    }}></div>
+    <span>Selected Seat</span>
+  </div>
+
+  <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+    <div style={{
+      width: '20px',
+      height: '20px',
+      backgroundColor: 'lightgrey',
+      border: '1px solid #444'
+    }}></div>
+    <span>Booked Seat</span>
+  </div>
+</div>
   
       {/* Stage/Screen direction */}
 <div style={{
@@ -474,16 +533,21 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
               flexWrap: 'nowrap', // Prevent row wrapping
             }}
           >
-            {row.map((seat) =>
+            {row.map((seat, seatIndex) =>
               seat ? (
-                <button
-                  key={seat}
-                  onClick={() => handleSeatSelect(seat)}
-                  style={getSeatStyle(seat)}
-                  disabled={bookedSeats.includes(seat)}
-                >
-                  {seat}
-                </button>
+                <>
+                  {seatIndex === 11 && (
+                    <div style={{ minWidth: '20px' }}></div> // Spacer between left and right sections
+                  )}
+                  <button
+                    key={seat}
+                    onClick={() => handleSeatSelect(seat)}
+                    style={getSeatStyle(seat)}
+                    disabled={bookedSeats.includes(seat)}
+                  >
+                    {seat}
+                  </button>
+                </>
               ) : (
                 <div key={Math.random()} style={{ minWidth: '45px' }}></div>
               )
@@ -494,6 +558,7 @@ const timestamp = new Intl.DateTimeFormat('en-SL', {
     ))}
   </div>
 </div>
+
 
   
       {/* KDU student warning */}
