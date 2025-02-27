@@ -163,6 +163,9 @@ We can’t wait to take you on this magical journey!
 
 @app.route('/book-seats', methods=['POST'])
 def book_seats():
+    if request.content_type != 'application/json':
+        return "Unsupported Media Type", 415
+
     data = request.json
     timestamp = data.get('timestamp')
     email = data.get('email')
